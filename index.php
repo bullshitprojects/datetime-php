@@ -176,10 +176,12 @@
       <h5>
         <?php
           if(isset($_POST['ex6'])){
-            $seconds = $_POST['seconds'];
-            $dateFormat = new \DateTime('@0');
-            $dateSeconds = new \DateTime("@$seconds");
-            echo $dateFormat->diff($dateSeconds)->format('%a Días, %h Horas, %i Minutos');
+            $seconds = (int)$_POST['seconds'];
+            $hours = $seconds/3600;
+            $days = $seconds/86400;
+            $minutes = $seconds/60;
+
+            echo "$seconds segundos equivale a $days días, $hours horas y $minutes minutos.";
           }
         ?>
       </h5>
